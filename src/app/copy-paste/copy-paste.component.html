@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 d-flex flex-column" id="test1">
+            <span class="input-group">Data</span>
+            <textarea [(ngModel)]="datos" style="min-height: 335px;" class="form-control"
+                aria-label="With textarea"></textarea>
+            <br>
+            <button type="button" class="btn btn-primary" (click)="copyToClipboard()">TEF</button>
+            <br>
+        </div>
+        <div class="col-md-4 d-flex flex-column" id="test2">
+            <span>Resultado</span>
+            <br>
+            <div *ngIf="dataTEF !== undefined">
+                <span>Nombre: {{dataTEF.name}}</span>
+                <br>
+                <span>RUT: {{dataTEF.rut}}</span>
+                <br>
+                <span>{{dataTEF.bank}}</span>
+                <br>
+                <span>{{dataTEF.accountType}}</span>
+                <br>
+                <span>Numero cuenta: {{dataTEF.accountNumber}}</span>
+                <br>
+                <span>Email: {{dataTEF.email}}</span>
+            </div>
+        </div>
+
+        <!-- <div class="col-md-4 d-flex flex-column" id="test2">
+            <span class="input-column">Data</span>
+            <textarea [(ngModel)]="datosCompra" style="min-height: 335px;" class="form-control"
+                aria-label="With textarea"></textarea>
+            <br>
+            <button type="button" class="btn btn-primary" (click)="generateVoucher('compra')" style="margin-left: 8px;">
+                Compra</button>
+            <br>
+            <span>Resultado</span>
+            <br>
+            <div *ngIf="voucherCompra !== undefined">
+                <span>ID: {{voucherCompra.trx}}</span>
+                <br>
+                <span>Monto: {{voucherCompra.monto}}</span>
+                <br>
+                <span>Cantidad: {{voucherCompra.cantidad}}</span>
+                <br>
+                <span>Fecha: {{voucherCompra.fecha}}</span>
+                <br>
+            </div>
+            <br>
+        </div>
+
+        <div class="col-md-4 d-flex flex-column" id="test2">
+            <span class="input-group">Data</span>
+            <textarea [(ngModel)]="datosVenta" style="min-height: 335px;" class="form-control"
+                aria-label="With textarea"></textarea>
+            <br>
+            <button type="button" class="btn btn-primary" (click)="generateVoucher('venta')" style="margin-left: 8px;">
+                Venta</button>
+            <br>
+            <span>Resultado</span>
+            <br>
+            <div *ngIf="voucherVenta !== undefined">
+                <span>ID: {{voucherVenta.trx}}</span>
+                <br>
+                <span>Monto: {{voucherVenta.monto}}</span>
+                <br>
+                <span>Cantidad: {{voucherVenta.cantidad}}</span>
+                <br>
+                <span>Fecha: {{voucherVenta.fecha}}</span>
+                <br>
+            </div>
+            <br>
+        </div> -->
+    </div>
+</div>
