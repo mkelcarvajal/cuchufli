@@ -63,7 +63,7 @@ export class CopyPasteComponent {
       data.bank = 'Banco Santander';
     }
 
-    if (data.bank === 'BCI Chile') {
+    if (data.bank === 'BCI Chile' || data.bank === "BCI") {
       data.bank = 'Banco BCI';
     }
 
@@ -73,7 +73,6 @@ export class CopyPasteComponent {
   getBankData(fileData: string[]) {
     const indexes: number[] = [];
     let data: any = {}; // Create copy to avoid mutating original data
-
     if (fileData[0].toLowerCase().includes('santander')) {
       indexes.push(0, 8, 6, 4, 10, 12);
     } else if (fileData[0].toLowerCase().includes('falabella')) {
@@ -90,6 +89,7 @@ export class CopyPasteComponent {
       data['bank'] = fileData[indexes[0]];
       data = this.validateBank(data); // Assuming validateBank is a separate function
       data['rut'] = fileData[indexes[1]];
+      data['rut'] = data['rut'].replaceAll(".", "")
       data = this.validateRut(data); // Assuming validateRut is a separate function
       data['accountNumber'] = fileData[indexes[2]];
       data = this.validateAccountNumber(data); // Assuming validateAccountNumber is a separate function
@@ -97,6 +97,7 @@ export class CopyPasteComponent {
       data = this.validateAccountType(data); // Assuming validateAccountType is a separate function
       data['email'] = fileData[indexes[4]];
       data['name'] = fileData[indexes[5]];
+      data['accountNumber'] = data['accountNumber'].replaceAll("-", "")
     }
 
     return data;
