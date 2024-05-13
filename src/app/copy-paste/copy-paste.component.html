@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>v1.0.1</h1>
+    <h1>v1.0.2</h1>
     <div class="row">
         <div class="col-md-4 d-flex flex-column" id="test1">
             <span class="input-group">Data</span>
@@ -13,17 +13,17 @@
             <span>Resultado</span>
             <br>
             <div *ngIf="dataTEF !== undefined">
-                <span>Nombre: {{dataTEF.name}}</span>
+                <span>{{dataTEF.name}}</span>
                 <br>
-                <span>RUT: {{dataTEF.rut}}</span>
+                <span>{{dataTEF.rut}}</span>
                 <br>
                 <span>{{dataTEF.bank}}</span>
                 <br>
                 <span>{{dataTEF.accountType}}</span>
                 <br>
-                <span>Numero cuenta: {{dataTEF.accountNumber}}</span>
+                <span>{{dataTEF.accountNumber}}</span>
                 <br>
-                <span>Email: {{dataTEF.email}}</span>
+                <span>{{dataTEF.email}}</span>
             </div>
         </div>
 
