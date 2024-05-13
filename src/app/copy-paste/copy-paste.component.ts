@@ -116,7 +116,7 @@ export class CopyPasteComponent {
 
   copyToClipboard() {
     const formatData: any = this.getData(this.datos)
-    const copyData = `Nombre: ${formatData.name}\nRUT: ${formatData.rut}\n${formatData.bank}\n${formatData.accountType}\nNumero cuenta: ${formatData.accountNumber}\nEmail: ${formatData.email}`
+    const copyData = `${formatData.name}\n${formatData.rut}\n${formatData.bank}\n${formatData.accountType}\n${formatData.accountNumber}\n${formatData.email}`
     this.dataTEF = formatData;
     this._clipboard.copy(copyData);
     this.voucherCompra = undefined;
