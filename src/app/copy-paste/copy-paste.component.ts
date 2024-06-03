@@ -46,7 +46,9 @@ export class CopyPasteComponent {
   }
 
   validateAccountType(data: any) {
+    console.log(data);
     if (['rut', 'cuenta rut', 'cuentarut'].includes(data.accountType?.toLowerCase())) {
+      console.log("entro axaaaaaaaaaaaa");
       data.accountType = 'Cuenta RUT'; // Map "rut" type to "Cuenta Vista"
     }
 
@@ -56,6 +58,7 @@ export class CopyPasteComponent {
 
     data.accountType = data.accountType?.charAt(0).toUpperCase() + data.accountType?.slice(1).toLowerCase(); // Title case the account type
 
+    console.log(data.accountType);
     return data;
   }
 
@@ -122,6 +125,7 @@ export class CopyPasteComponent {
           datos.name = fileData[values[3]];
         } else {
           datos.accountType = fileData[values[3]];
+          console.log(datos.accountType);
           datos = this.validateAccountType(datos);
 
           if (!fileData[7].includes('Correo electronico') && fileData[0].toLowerCase().includes('falabella')) {
@@ -133,8 +137,9 @@ export class CopyPasteComponent {
           }
         }
 
-        if (!datos.accountType.toLowerCase().includes('RUT')) {
+        if (datos.accountType.toLowerCase().includes('rut')) {
           datos.accountType = 'Cuenta RUT';
+          console.log("paso x aca");
         } else {
           if (!datos.accountType.toLowerCase().includes('vista') || datos.accountType.toLowerCase().includes('corriente')) {
             datos.accountType = 'Cuenta Corriente';
