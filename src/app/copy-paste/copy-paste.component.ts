@@ -137,6 +137,7 @@ export class CopyPasteComponent {
           datos.accountType = 'Cuenta Corriente';
         }
       }
+      datos.accountNumber = datos['accountNumber'].replaceAll("-", "").replaceAll(" ", "")
       datos.accountNumber = Number(datos.accountNumber)
     } catch (error) {
       console.log(error);
