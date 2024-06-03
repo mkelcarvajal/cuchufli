@@ -47,7 +47,7 @@ export class CopyPasteComponent {
 
   validateAccountType(data: any) {
     if (['rut', 'cuenta rut', 'cuentarut'].includes(data.accountType?.toLowerCase())) {
-      data.accountType = 'Cuenta Vista'; // Map "rut" type to "Cuenta Vista"
+      data.accountType = 'Cuenta RUT'; // Map "rut" type to "Cuenta Vista"
     }
 
     if (['vista', 'corriente'].includes(data.accountType?.toLowerCase())) {
@@ -133,11 +133,23 @@ export class CopyPasteComponent {
           }
         }
 
-        if (!datos.accountType.toLowerCase().includes('vista') || datos.accountType.toLowerCase().includes('corriente')) {
-          datos.accountType = 'Cuenta Corriente';
+        if (!datos.accountType.toLowerCase().includes('RUT')) {
+          datos.accountType = 'Cuenta RUT';
+        } else {
+          if (!datos.accountType.toLowerCase().includes('vista') || datos.accountType.toLowerCase().includes('corriente')) {
+            datos.accountType = 'Cuenta Corriente';
+          }
         }
+
+
       }
+      datos.rut = datos['rut'].replaceAll(".", "");
       datos.accountNumber = datos['accountNumber'].replaceAll("-", "").replaceAll(" ", "")
+
+      if (datos.accountType === "Cuenta RUT") {
+        datos.accountNumber = datos.rut.replaceAll("-", "").slice(0, -1);
+      }
+
       datos.accountNumber = Number(datos.accountNumber)
     } catch (error) {
       console.log(error);
