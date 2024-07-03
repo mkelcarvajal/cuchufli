@@ -215,6 +215,7 @@ export class CopyPasteComponent {
     this._clipboard.copy(copyData);
     this.voucherCompra = undefined;
     this.voucherVenta = undefined;
+    this.datos = "";
   }
 
 }
